@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import $ from 'jquery';
 import ReactGA from 'react-ga4';
 import site from '../../site.config';
-import { getR, isIncomplete, runR } from '../../lib/webr';
+import { completeR, getR, isIncomplete, runR } from '../../lib/webr';
 import { createShell, escapeHtml } from '../../lib/shell';
 import survivalExplorer from '../../shiny-apps/survival-explorer/app.R';
 import kaplanMeier from '../../r-scripts/01-kaplan-meier.R';
@@ -136,6 +136,37 @@ export class Terminal extends Component {
         $(`#show-${id}`).text(value);
     }
 
+    // Fill in the completed line; list the candidates under it when there are several.
+    showCompletion = (id, { line, options }) => {
+        this.setInput(id, line);
+        const out = document.getElementById(`row-result-${id}`);
+        if (out) out.innerHTML = options.length
+            ? `<div class="flex flex-wrap text-ubt-warm-grey">${options.slice(0, 200).map(o => `<span class="mr-4">${escapeHtml(o)}</span>`).join("")}${options.length > 200 ? `<span>… ${options.length - 200} more</span>` : ""}</div>` : "";
+    }
+
+    completeRLine = async (id, value) => {
+        // R completes the code on this line only; earlier lines of a multi-line block don't matter.
+        let res;
+        try { res = await completeR(value); } catch (err) { return; }
+        if ($(`input#terminal-input-${id}`).val() !== value) return; // user kept typing
+        const { token, completions } = res;
+        const matches = completions.filter(c => c.startsWith(token) || token === "");
+        if (!matches.length) return this.showCompletion(id, { line: value, options: [] });
+        const before = value.slice(0, value.length - token.length);
+        if (matches.length === 1) return this.showCompletion(id, { line: before + matches[0], options: [] });
+        let prefix = matches[0];
+        matches.forEach(c => { while (!c.startsWith(prefix)) prefix = prefix.slice(0, -1); });
+        this.showCompletion(id, { line: before + prefix, options: matches });
+    }
+
+    // Clicking anywhere in the terminal (except when selecting text) puts the cursor back in the prompt.
+    focusPrompt = () => {
+        if (window.getSelection && String(window.getSelection())) return;
+        const id = this.terminal_rows - 2;
+        $(`input#terminal-input-${id}`).trigger("focus");
+        this.startCursor(id);
+    }
+
     checkKey = (e) => {
         const id = $(e.target).data("row-id");
         const input = $(`input#terminal-input-${id}`);
@@ -150,11 +181,8 @@ export class Terminal extends Component {
         }
         else if (e.key === "Tab") {
             e.preventDefault();
-            if (this.mode !== "bash") return;
-            const { line, options } = getShell().complete(input.val());
-            this.setInput(id, line);
-            document.getElementById(`row-result-${id}`).innerHTML = options.length
-                ? `<div class="flex flex-wrap text-ubt-warm-grey">${options.map(o => `<span class="mr-4">${escapeHtml(o)}</span>`).join("")}</div>` : "";
+            if (this.mode === "R") this.completeRLine(id, input.val());
+            else this.showCompletion(id, getShell().complete(input.val()));
         }
         else if (e.ctrlKey && (e.key === "c" || e.key === "C")) {
             e.preventDefault();
@@ -258,7 +286,7 @@ export class Terminal extends Component {
 
     render() {
         return (
-            <div className="h-full w-full bg-ub-drk-abrgn text-white text-sm font-bold font-mono px-1.5 pt-1" id="terminal-body">
+            <div className="h-full w-full bg-ub-drk-abrgn text-white text-sm font-bold font-mono px-1.5 pt-1" id="terminal-body" onClick={this.focusPrompt}>
                 {
                     this.state.terminal
                 }
