@@ -68,8 +68,8 @@ const apps = [
         title: "Visual Studio Code",
         icon: './themes/Yaru/apps/vscode.png',
         disabled: false,
-        favourite: false,
-        desktop_shortcut: false,
+        favourite: true,
+        desktop_shortcut: true,
         screen: displayVsCode,
     },
     {

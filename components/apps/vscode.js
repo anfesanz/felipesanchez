@@ -1,14 +1,13 @@
 import React from 'react'
 import site from '../../site.config'
 
+// Same approach as the original Ubuntu portfolio: an iframe of github1s.com,
+// which renders a GitHub repo in a read-only VS Code UI. It only works for public repos.
 export default function VsCode() {
+    const { repo, file } = site.vscode;
     return (
-        <iframe src={site.repo.replace("github.com", "github1s.com") + "/blob/HEAD/shiny-apps/survival-explorer/app.R"} frameBorder="0" title="VsCode" className="h-full w-full bg-ub-cool-grey"></iframe>
-        // this is not my work, but it's amazing!
-        // Here is the link to the original repo: https://github.com/conwnet/github1s
+        <iframe src={repo.replace("github.com", "github1s.com") + "/blob/HEAD/" + file} frameBorder="0" title="VsCode" className="h-full w-full bg-ub-cool-grey"></iframe>
     )
 }
 
-export const displayVsCode = () => {
-    <VsCode> </VsCode>
-}
+export const displayVsCode = () => <VsCode />;

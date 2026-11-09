@@ -1,12 +1,11 @@
 # Felipe Sanchez: Ubuntu desktop portfolio with R in the browser
 
-A personal website styled as an Ubuntu 20.04 desktop, customised for a data scientist / R user.
+A personal website styled as an Ubuntu 20.04 desktop, customised R user.
 R runs **in the visitor's browser** via [webR](https://docs.r-wasm.org/webr/) and [Shinylive](https://shinylive.io/r/), with no server.
 
 ## Credits
 
-Forked from [vivek9patel/vivek9patel.github.io](https://github.com/vivek9patel/vivek9patel.github.io)
-(MIT licence, © 2020 vivek9patel). Yaru icons and the Ubuntu look belong to their respective authors.
+Inspired in the work [vivek9patel/vivek9patel.github.io](https://github.com/vivek9patel/vivek9patel.github.io).
 
 ## Edit your content
 

@@ -47,7 +47,7 @@ export function AllApps(props) {
 
     return (
         <div
-            className={`w-10 h-10 rounded m-1 hover:bg-white hover:bg-opacity-10 flex items-center justify-center`}
+            className={`w-14 h-14 rounded m-1 hover:bg-white hover:bg-opacity-10 flex items-center justify-center`}
             style={{ marginTop: 'auto' }}
             onMouseEnter={() => {
                 setTitle(true);
@@ -58,7 +58,7 @@ export function AllApps(props) {
             onClick={props.showApps}
         >
             <div className="relative">
-                <img width="28px" height="28px" className="w-7" src="./themes/Yaru/system/view-app-grid-symbolic.svg" alt="Ubuntu view app" />
+                <img width="32px" height="32px" className="w-8" src="./themes/Yaru/system/view-app-grid-symbolic.svg" alt="Ubuntu view app" />
                 <div
                     className={
                         (title ? " visible " : " invisible ") +
