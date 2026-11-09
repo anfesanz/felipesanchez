@@ -3,6 +3,8 @@
 A personal website styled as an Ubuntu 20.04 desktop, customised R user.
 R runs **in the visitor's browser** via [webR](https://docs.r-wasm.org/webr/) and [Shinylive](https://shinylive.io/r/), with no server.
 
+**Live site: [anfesanz.github.io/felipesanchez](https://anfesanz.github.io/felipesanchez/)**
+
 ## Credits
 
 Inspired in the work [vivek9patel/vivek9patel.github.io](https://github.com/vivek9patel/vivek9patel.github.io).
