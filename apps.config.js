@@ -16,8 +16,38 @@ const displayRIde = () => <RIde />;
 const displayDataViewer = () => <DataViewer />;
 import site from './site.config';
 import { displayTerminalCalc } from './components/apps/calc';
+import { displayFolder, FOLDERS } from './components/apps/files';
+import { displayCV } from './components/apps/cv';
 
 const apps = [
+    // Desktop folders (open in the Files window, see components/apps/files.js)
+    {
+        id: "folder-cv",
+        title: FOLDERS.cv.title,
+        icon: FOLDERS.cv.icon,
+        disabled: false,
+        favourite: false,
+        desktop_shortcut: true,
+        screen: displayFolder("cv"),
+    },
+    {
+        id: "folder-projects",
+        title: FOLDERS.projects.title,
+        icon: FOLDERS.projects.icon,
+        disabled: false,
+        favourite: false,
+        desktop_shortcut: true,
+        screen: displayFolder("projects"),
+    },
+    {
+        id: "cv",
+        title: "CV",
+        icon: './themes/Yaru/system/cv-document.svg',
+        disabled: false,
+        favourite: false,
+        desktop_shortcut: false,
+        screen: displayCV,
+    },
     {
         id: "chrome",
         title: "Google Chrome",
@@ -42,7 +72,7 @@ const apps = [
         icon: './themes/Yaru/system/user-home.png',
         disabled: false,
         favourite: true,
-        desktop_shortcut: true,
+        desktop_shortcut: false,
         screen: displayAboutMe,
     },
     {
@@ -114,7 +144,7 @@ const apps = [
         icon: './themes/Yaru/apps/gedit.png',
         disabled: false,
         favourite: false,
-        desktop_shortcut: true,
+        desktop_shortcut: false,
         screen: displayGedit,
     },
     {
@@ -123,7 +153,7 @@ const apps = [
         icon: './themes/Yaru/apps/github.png',
         disabled: false,
         favourite: false,
-        desktop_shortcut: true,
+        desktop_shortcut: false,
         isExternalApp: true,
         url: site.github,
         screen: () => {},

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga4';
 import site from '../../site.config';
+import { CV } from './cv';
 
 const SECTIONS = [
     { id: "about", label: "About Me", icon: "./themes/Yaru/status/about.svg" },
@@ -117,7 +118,7 @@ function Education() {
                 {site.education.map((e, i) => (
                     <li key={i} className={"list-disc" + (i ? " mt-4" : "")}>
                         <div className=" text-lg md:text-xl text-left font-bold leading-tight">{e.institution}</div>
-                        <div className=" text-sm text-gray-400 mt-0.5">{e.years}</div>
+                        {e.years && <div className=" text-sm text-gray-400 mt-0.5">{e.years}</div>}
                         <div className=" text-sm md:text-base">{e.degree}</div>
                     </li>
                 ))}
@@ -173,6 +174,6 @@ function Projects() {
 }
 
 function Resume() {
-    if (!site.resumePdf) return <div className="m-auto text-gray-400">CV coming soon.</div>;
+    if (!site.resumePdf) return <CV />;
     return <iframe className="h-full w-full" src={site.resumePdf} title={`${site.name} CV`} frameBorder="0"></iframe>;
 }

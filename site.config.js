@@ -5,7 +5,7 @@ const site = {
     name: "Felipe Sanchez",
     shortName: "felipe",             // used for the terminal prompt: felipe@lshtm
     host: "lshtm",
-    role: "Data Scientist",            // TODO: confirm exact job title
+    role: "Research Fellow in Computational Social Science",
     affiliation: "London School of Hygiene & Tropical Medicine",
     email: "felipe.sanchez@lshtm.ac.uk",
     url: "https://felipe.example",     // TODO: set once the custom domain is bought
@@ -14,32 +14,36 @@ const site = {
     // VS Code app: opens this repo in github1s.com (a VS Code UI for GitHub). Must be a PUBLIC repo.
     vscode: { repo: "https://github.com/anfesanz/felipesanchez", file: "components/ubuntu.js" },
     linkedin: "",                      // TODO: LinkedIn URL (leave empty to hide)
-    scholar: "",                       // TODO: Google Scholar URL (leave empty to hide)
+    scholar: "https://scholar.google.com/citations?user=7wymWWEAAAAJ",
+    profile: "https://www.lshtm.ac.uk/aboutus/people/sanchez.felipe",   // LSHTM staff page
     orcid: "",                         // TODO: ORCID URL (leave empty to hide)
     description:
-        "Personal website of Felipe Sanchez — data scientist and R user. An Ubuntu 20.04 desktop in the browser with live R (webR) and Shiny apps.",
+        "Personal website of Felipe Sanchez — data scientist, social statistician and R user. An Ubuntu 20.04 desktop in the browser with live R (webR) and Shiny apps.",
 
-    // TODO: replace with your own bio paragraphs.
+    // Short version of the CV summary (full CV: content/cv.md, shown in the CV folder).
     bio: [
-        "I'm a data scientist at the London School of Hygiene & Tropical Medicine.",
-        "I work mostly in R, with a focus on survival analysis and time-to-event models.",
-        "This site is an Ubuntu desktop running in your browser — open the Survival Explorer to run a real Shiny app powered by webR.",
+        "I'm a data scientist and Research Fellow in Computational Social Science at the London School of Hygiene & Tropical Medicine, working on harmonised cause-of-death data, spatial analysis of mortality and dashboards for policymakers.",
+        "Before that I did a PhD in Social Statistics at the University of Manchester on coherent Bayesian forecasting of mortality and fertility, consulted for the OECD, and spent seven years as a policy researcher at Colombia's National Planning Department working on health, pensions and demography.",
+        "I mostly work in R, plus Python, SQL, Stata, Julia and JavaScript. Open the CV folder on the desktop for the full story, or Projects to see what I'm building.",
     ],
 
-    // TODO: fill in your education.
     education: [
-        // { institution: "University name", years: "2018 – 2022", degree: "PhD in ..." },
+        { institution: "University of Manchester, UK", years: "", degree: "PhD in Social Statistics · North West Social Science DTP Scholarship" },
+        { institution: "University of Manchester, UK", years: "", degree: "MSc in Social Research Methods and Statistics, with Merit · North West Social Science DTP Scholarship" },
+        { institution: "Universidad del Cauca, Colombia", years: "", degree: "Diploma in Computer Science and Mathematics" },
+        { institution: "National University of Colombia, Bogotá", years: "", degree: "BSc in Economics, First Class" },
     ],
 
     skills: {
-        languages: ["R", "SQL", "Python", "Stata", "Git", "Bash"],
-        r: ["tidyverse", "survival", "data.table", "Shiny", "Quarto", "targets", "brms", "ggplot2"],
-        methods: ["Survival analysis", "Cox models", "Competing risks", "Multilevel models", "Causal inference"],
+        languages: ["R", "Python", "SQL", "Stata", "Julia", "JavaScript"],
+        r: ["tidyverse", "survival", "data.table", "Shiny", "Quarto", "targets", "brms", "ggplot2"],   // not in the CV: check this list
+        methods: ["Bayesian demography", "Mortality & fertility forecasting", "Econometric modelling", "Microdata analysis", "Spatial analysis", "Causal inference", "Web scraping", "Dashboards"],
     },
 
     projects: [
         {
             name: "OpenCOD",
+            icon: "./themes/Yaru/projects/opencod.svg",
             date: "2026",
             link: "https://github.com/anfesanz/OpenCOD",
             description: [
@@ -50,6 +54,7 @@ const site = {
         },
         {
             name: "HEAL-AI Eval",
+            icon: "./themes/Yaru/projects/heal-ai.svg",
             date: "2026",
             link: "https://github.com/anfesanz/heal-ai",
             description: [
@@ -60,6 +65,8 @@ const site = {
         },
         {
             name: "Coherent Forecasting of Mortality and Fertility",
+            shortName: "Thesis: Mortality & Fertility",
+            icon: "./themes/Yaru/projects/thesis.svg",
             date: "2024",
             link: "https://github.com/anfesanz/Thesis_Coherent_Forecasting_Mortality_Fertility_Rates",
             description: [
@@ -70,7 +77,7 @@ const site = {
         },
     ],
 
-    resumePdf: "", // TODO: e.g. "./files/Felipe-Sanchez-CV.pdf" (put the PDF in public/files/)
+    resumePdf: "", // optional PDF in public/files/; when empty, About > Resume shows the CV from content/cv.md
 };
 
 export default site;

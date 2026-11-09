@@ -11,7 +11,7 @@ module.exports = {
     trailingSlash: true,
     webpack: (config) => {
         // `import code from './app.R'` gives the file contents as a string
-        config.module.rules.push({ test: /\.R$/, type: 'asset/source' });
+        config.module.rules.push({ test: /\.(R|md)$/, type: 'asset/source' });
         return config;
     },
 };
