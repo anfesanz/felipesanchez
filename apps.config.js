@@ -159,5 +159,7 @@ const apps = [
         screen: () => {},
     },
 ]
+    // Hide apps switched off in site.config.js → show
+    .filter(app => (app.id !== "cv" || site.show.cv) && (app.id !== "about-me" || site.show.aboutMe));
 
 export default apps;

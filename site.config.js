@@ -2,6 +2,12 @@
 // Anything marked TODO is a placeholder — replace it with your own text.
 
 const site = {
+    // Show or hide parts of the desktop: true = show, false = hide. Rebuild/redeploy after changing.
+    show: {
+        cv: false,        // the CV document: CV folder item, About Me > Resume tab, cv.md in the terminal
+        aboutMe: false,   // the About Me app: dock, app grid, CV folder item, terminal 'about' command
+    },
+
     name: "Felipe Sanchez",
     shortName: "felipe",             // used for the terminal prompt: felipe@lshtm
     host: "lshtm",

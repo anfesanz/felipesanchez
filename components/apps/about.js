@@ -9,7 +9,7 @@ const SECTIONS = [
     { id: "skills", label: "Skills", icon: "./themes/Yaru/status/skills.svg" },
     { id: "projects", label: "Projects", icon: "./themes/Yaru/status/projects.svg" },
     { id: "resume", label: "Resume", icon: "./themes/Yaru/status/download.svg" },
-];
+].filter(s => s.id !== "resume" || site.show.cv);
 
 export class AboutMe extends Component {
     constructor() {

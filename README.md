@@ -20,6 +20,24 @@ Inspired in the work [vivek9patel/vivek9patel.github.io](https://github.com/vive
 | Desktop folders and what's inside them | `components/apps/files.js` (`FOLDERS`) |
 | CV PDF | `public/files/`, then set `resumePdf` in `site.config.js` |
 
+## Hide or show the CV and About Me
+
+Both are switched on and off in `site.config.js`, at the top:
+
+```js
+show: {
+    cv: true,       // false hides the CV
+    aboutMe: true,  // false hides About Me
+},
+```
+
+| Setting | What disappears when `false` |
+|---|---|
+| `cv` | The CV document in the CV folder, the *Resume* tab in About Me, and `cv.md` in the Terminal. The folder is renamed **About** and keeps the contact links. |
+| `aboutMe` | The About Me app from the dock, the app grid and the CV folder, plus the Terminal's `about` command and `about.txt`. |
+
+Commit and push to `main`; the GitHub Actions workflow redeploys the site automatically. Locally, `npm run dev` picks up the change on reload.
+
 ## Develop
 
 ```sh

@@ -15,11 +15,12 @@ export const FOLDERS = {
         })),
     },
     cv: {
-        title: "CV",
+        // Named "About" when the CV is hidden (it still holds contact links)
+        title: site.show.cv ? "CV" : "About",
         icon: "./themes/Yaru/system/folder-cv.svg",
         items: () => [
-            { name: "CV", icon: "./themes/Yaru/system/cv-document.svg", app: "cv", note: "Full CV" },
-            { name: `About ${site.name.split(" ")[0]}`, icon: "./themes/Yaru/system/user-home.png", app: "about-me", note: "Bio, education, skills and projects" },
+            ...(site.show.cv ? [{ name: "CV", icon: "./themes/Yaru/system/cv-document.svg", app: "cv", note: "Full CV" }] : []),
+            ...(site.show.aboutMe ? [{ name: `About ${site.name.split(" ")[0]}`, icon: "./themes/Yaru/system/user-home.png", app: "about-me", note: "Bio, education, skills and projects" }] : []),
             { name: "Contact Me", icon: "./themes/Yaru/apps/gedit.png", app: "gedit", note: "Send me a message" },
             ...(site.profile ? [{ name: "LSHTM profile", icon: "./themes/Yaru/apps/chrome.png", url: site.profile, note: site.profile }] : []),
             ...(site.scholar ? [{ name: "Google Scholar", icon: "./themes/Yaru/apps/chrome.png", url: site.scholar, note: site.scholar }] : []),
