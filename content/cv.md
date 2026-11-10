@@ -2,7 +2,7 @@
 
 Data science | Social statistics | Policy research
 
-London, UK | felipe.sanchez@lshtm.ac.uk
+London, UK
 
 [LSHTM profile website](https://www.lshtm.ac.uk/aboutus/people/sanchez.felipe)
 
@@ -18,7 +18,7 @@ Data scientist with experience at the OECD, the University of Manchester, and th
 
 ## Professional Experience
 
-### Research Fellow in Computational Social Science
+### Research Fellow, Mortality & Health Inequalities Group
 
 London School of Hygiene & Tropical Medicine, UK | September 2025 – Present
 

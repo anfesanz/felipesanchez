@@ -11,7 +11,7 @@ export default function Meta() {
             <meta name="title" content={title} />
             <meta name="description" content={site.description} />
             <meta name="author" content={site.name} />
-            <meta name="keywords" content={`${site.name}, data scientist, R, webR, Shiny, survival analysis, ${site.affiliation}, ubuntu portfolio`} />
+            <meta name="keywords" content={`${site.name}, mortality forecasting, fertility forecasting, health inequalities, Bayesian demography, education, population health, ${site.affiliation}`} />
             <meta name="robots" content="index, follow" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="theme-color" content="#E95420" />
@@ -26,6 +26,7 @@ export default function Meta() {
             <meta property="og:site_name" content={site.name} />
             <meta property="og:locale" content="en_GB" />
             <meta property="og:type" content="website" />
+            <link rel="canonical" href={site.url} />
             <link rel="icon" href="images/logos/fevicon.svg" />
             <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono&display=swap" as="style" />
             <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Ubuntu+Mono&display=swap" rel="stylesheet"></link>

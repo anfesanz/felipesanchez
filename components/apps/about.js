@@ -5,9 +5,12 @@ import { CV } from './cv';
 
 const SECTIONS = [
     { id: "about", label: "About Me", icon: "./themes/Yaru/status/about.svg" },
+    { id: "research", label: "Research", icon: "./themes/Yaru/status/projects.svg" },
+    { id: "publications", label: "Publications", icon: "./themes/Yaru/system/cv-document.svg" },
     { id: "education", label: "Education", icon: "./themes/Yaru/status/education.svg" },
     { id: "skills", label: "Skills", icon: "./themes/Yaru/status/skills.svg" },
     { id: "projects", label: "Projects", icon: "./themes/Yaru/status/projects.svg" },
+    { id: "contact", label: "Contact", icon: "./themes/Yaru/status/contact.svg" },
     { id: "resume", label: "Resume", icon: "./themes/Yaru/status/download.svg" },
 ].filter(s => s.id !== "resume" || site.show.cv);
 
@@ -39,9 +42,12 @@ export class AboutMe extends Component {
 
     renderScreen = () => {
         switch (this.state.active_screen) {
+            case "research": return <Research />;
+            case "publications": return <Publications />;
             case "education": return <Education />;
             case "skills": return <Skills />;
             case "projects": return <Projects />;
+            case "contact": return <Contact />;
             case "resume": return <Resume />;
             default: return <About />;
         }
@@ -95,7 +101,8 @@ function About() {
             <div className=" mt-4 md:mt-8 text-lg md:text-2xl text-center px-1">
                 <div>my name is <span className="font-bold">{site.name}</span>,</div>
                 <div className="font-normal ml-1">I'm a <span className="text-ubt-gedit-orange font-bold">{site.role}</span></div>
-                <div className="text-sm md:text-base text-gray-400 mt-1">{site.affiliation}</div>
+                <div className="text-sm md:text-base text-gray-300 mt-2">{site.department}</div>
+                <div className="text-sm md:text-base text-gray-400">{site.affiliation}</div>
             </div>
             <div className=" mt-4 relative md:my-8 pt-px bg-white w-32 md:w-48">
                 <div className="bg-white absolute rounded-full p-0.5 md:p-1 top-0 transform -translate-y-1/2 left-0"></div>
@@ -103,8 +110,70 @@ function About() {
             </div>
             <ul className=" mt-4 leading-tight tracking-tight text-sm md:text-base w-5/6 md:w-3/4 emoji-list">
                 {site.bio.map((p, i) => <li key={i} className={(i ? " mt-3 " : "") + icons[i % icons.length]}>{p}</li>)}
-                <li className=" mt-3 list-star">Get in touch: <a className="underline" href={`mailto:${site.email}`}>{site.email}</a></li>
             </ul>
+            <div className="flex flex-wrap justify-center gap-2 mt-6 mb-6 px-4 text-sm">
+                <a className="px-3 py-1 rounded border border-gray-400 hover:border-ubb-orange" href={site.url}>Home</a>
+                <a className="px-3 py-1 rounded border border-gray-400 hover:border-ubb-orange" href={site.teachingMaterials} target="_blank" rel="noreferrer">Teaching Materials</a>
+            </div>
+        </>
+    );
+}
+
+function Research() {
+    return (
+        <>
+            <Heading>Research</Heading>
+            <div className="w-10/12 text-sm md:text-base leading-relaxed mt-2">{site.researchFocus}</div>
+            <div className="w-10/12 mt-7">
+                <h3 className="text-lg font-bold text-ubt-gedit-orange">Work in Progress</h3>
+                <ul className="ml-5 mt-2 text-sm md:text-base">
+                    {site.workInProgress.map((item, i) => <li key={i} className="list-disc mt-3 leading-relaxed">{item}</li>)}
+                </ul>
+            </div>
+        </>
+    );
+}
+
+function Publications() {
+    return (
+        <>
+            <Heading>Selected Publications</Heading>
+            <ol className="w-10/12 mt-2 mb-6 ml-5 text-sm md:text-base">
+                {site.publications.map((publication, i) => (
+                    <li key={publication.link} className="list-decimal mt-4 leading-relaxed pl-1">
+                        {publication.authors} ({publication.year}).{' '}
+                        <a className="text-ubt-gedit-orange underline" href={publication.link} target="_blank" rel="noreferrer">
+                            {publication.title}
+                        </a>. <em>{publication.journal}</em>{publication.details ? `, ${publication.details}` : ''}.
+                    </li>
+                ))}
+            </ol>
+        </>
+    );
+}
+
+function Contact() {
+    const links = [
+        ["LSHTM profile", site.profile],
+        ["Google Scholar", site.scholar],
+        ["GitHub", site.github],
+        ["Teaching Materials", site.teachingMaterials],
+    ].filter(([, link]) => link);
+    return (
+        <>
+            <Heading>Contact</Heading>
+            <div className="w-10/12 mt-3 text-sm md:text-base leading-relaxed">
+                <div className="font-bold">{site.department}</div>
+                <div>{site.affiliation}</div>
+                {site.address.map(line => <div key={line}>{line}</div>)}
+            </div>
+            <div className="w-10/12 mt-7 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {links.map(([label, link]) => (
+                    <a key={label} href={link} target="_blank" rel="noreferrer" className="px-3 py-2 rounded border border-gray-500 hover:border-ubb-orange hover:bg-white hover:bg-opacity-5">
+                        {label} <span aria-hidden="true">↗</span>
+                    </a>
+                ))}
+            </div>
         </>
     );
 }

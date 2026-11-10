@@ -14,8 +14,8 @@ function DefaultMenu(props) {
             <a rel="noreferrer noopener" href={site.github} target="_blank" className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5">
                 <span className="ml-5">🤝</span> <span className="ml-2">Follow on <strong>Github</strong></span>
             </a>
-            <a rel="noreferrer noopener" href={`mailto:${site.email}`} target="_blank" className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5">
-                <span className="ml-5">📥</span> <span className="ml-2">Contact Me</span>
+            <a rel="noreferrer noopener" href={site.profile} target="_blank" className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5">
+                <span className="ml-5">🏛️</span> <span className="ml-2">LSHTM Profile</span>
             </a>
             <a rel="noreferrer noopener" href="https://github.com/vivek9patel/vivek9patel.github.io" target="_blank" className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5">
                 <span className="ml-5">🙏</span> <span className="ml-2">Based on vivek9patel's UbuntuOS</span>

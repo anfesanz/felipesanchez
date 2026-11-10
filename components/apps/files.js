@@ -32,6 +32,8 @@ export const FOLDERS = {
             ...(site.show.cv ? [{ name: "CV", icon: "./themes/Yaru/system/cv-document.svg", app: "cv", note: "Full CV" }] : []),
             ...(site.show.aboutMe ? [{ name: `About ${site.name.split(" ")[0]}`, icon: "./themes/Yaru/system/user-home.png", app: "about-me", note: "Bio, education, skills and projects" }] : []),
             { name: "Contact Me", icon: "./themes/Yaru/apps/gedit.png", app: "gedit", note: "Send me a message" },
+            { name: "Home", icon: "./themes/Yaru/apps/chrome.png", url: site.url, note: site.url },
+            ...(site.teachingMaterials ? [{ name: "Teaching Materials", icon: "./themes/Yaru/system/folder.png", url: site.teachingMaterials, note: site.teachingMaterials }] : []),
             ...(site.profile ? [{ name: "LSHTM profile", icon: "./themes/Yaru/apps/chrome.png", url: site.profile, note: site.profile }] : []),
             ...(site.scholar ? [{ name: "Google Scholar", icon: "./themes/Yaru/apps/chrome.png", url: site.scholar, note: site.scholar }] : []),
             { name: "GitHub", icon: "./themes/Yaru/apps/github.png", url: site.github, note: site.github },

@@ -5,16 +5,17 @@ const site = {
     // Show or hide parts of the desktop: true = show, false = hide. Rebuild/redeploy after changing.
     show: {
         cv: false,        // the CV document: CV folder item, About Me > Resume tab, cv.md in the terminal
-        aboutMe: false,   // the About Me app: dock, app grid, CV folder item, terminal 'about' command
+        aboutMe: true,    // the About Me app: dock, app grid, CV folder item, terminal 'about' command
     },
 
     name: "Felipe Sanchez",
     shortName: "felipe",             // used for the terminal prompt: felipe@lshtm
     host: "lshtm",
-    role: "Research Fellow in Computational Social Science",
+    role: "Research Fellow, Mortality & Health Inequalities Group",
+    department: "Department of Population Health",
     affiliation: "London School of Hygiene & Tropical Medicine",
-    email: "felipe.sanchez@lshtm.ac.uk",
-    url: "https://felipe.example",     // TODO: set once the custom domain is bought
+    address: ["15-17 Tavistock Place", "London WC1H 9SH", "United Kingdom"],
+    url: "https://anfesanz.github.io/felipesanchez/",
     github: "https://github.com/anfesanz",
     repo: "https://github.com/anfesanz/felipesanchez",
     // VS Code app: opens this repo in github1s.com (a VS Code UI for GitHub). Must be a PUBLIC repo.
@@ -22,15 +23,49 @@ const site = {
     linkedin: "",                      // TODO: LinkedIn URL (leave empty to hide)
     scholar: "https://scholar.google.com/citations?user=7wymWWEAAAAJ",
     profile: "https://www.lshtm.ac.uk/aboutus/people/sanchez.felipe",   // LSHTM staff page
+    teachingMaterials: "https://anfesanz.github.io/teaching.html",
     orcid: "",                         // TODO: ORCID URL (leave empty to hide)
     description:
-        "Personal website of Felipe Sanchez — data scientist, social statistician and R user. An Ubuntu 20.04 desktop in the browser with live R (webR) and Shiny apps.",
+        "Felipe Sanchez is a Research Fellow at the London School of Hygiene & Tropical Medicine, working on mortality and fertility forecasting, health inequalities and hierarchical Bayesian models.",
 
     // Short version of the CV summary (full CV: content/cv.md, shown in the CV folder).
     bio: [
-        "I'm a data scientist and Research Fellow in Computational Social Science at the London School of Hygiene & Tropical Medicine, working on harmonised cause-of-death data, spatial analysis of mortality and dashboards for policymakers.",
-        "Before that I did a PhD in Social Statistics at the University of Manchester on coherent Bayesian forecasting of mortality and fertility, consulted for the OECD, and spent seven years as a policy researcher at Colombia's National Planning Department working on health, pensions and demography.",
-        "I mostly work in R, plus Python, SQL, Stata, Julia and JavaScript. Open the CV folder on the desktop for the full story, or Projects to see what I'm building.",
+        "I work on demographic forecasting, mortality inequalities and Bayesian modelling. My research connects statistical methods with practical questions in public health and social development.",
+        "I am particularly interested in coherent forecasting across populations and in using incomplete data responsibly for evidence-based decisions.",
+    ],
+
+    researchFocus:
+        "My research focuses on mortality and fertility forecasting using hierarchical Bayesian models, especially in settings with fragmented or incomplete data. I am interested in how education shapes demographic and health outcomes, and how this can support public policy.",
+
+    workInProgress: [
+        "Sanchez-Segura, A. F., & Wisniowski, A. Coherent Mortality Forecast in Latin America.",
+        "Sanchez-Segura, A. F., & Wisniowski, A. A Hierarchical Bayesian Model to Coherently Forecast Mortality by Education in Colombia.",
+    ],
+
+    publications: [
+        {
+            authors: "Sanchez-Segura, A. F., & Hernandez, G. A.",
+            year: "2020",
+            title: "Modelo de Gravedad para los flujos de comercio internacional de Colombia",
+            journal: "Archivos de Economia",
+            details: "505(1)",
+            link: "https://colaboracion.dnp.gov.co/CDT/Estudios%20Econmicos/505.pdf",
+        },
+        {
+            authors: "Hernandez-Diaz, G. A., Cardenas, M. M., & Segura, A. F. S.",
+            year: "2019",
+            title: "Actualizacion de la estimacion de los indicadores Razon Precio-Cuenta",
+            journal: "Archivos de Economia",
+            link: "https://colaboracion.dnp.gov.co/CDT/Estudios%20Econmicos/497.pdf",
+        },
+        {
+            authors: "Nieto, V. M., Timote, J. A., Sanchez, A. F., & Villarreal, S.",
+            year: "2015",
+            title: "La clasificacion por tamano empresarial en Colombia: Historia y limitaciones para una propuesta",
+            journal: "Archivos de Economia",
+            details: "(434), 1-48",
+            link: "https://colaboracion.dnp.gov.co/CDT/Estudios%20Econmicos/434.pdf",
+        },
     ],
 
     education: [
@@ -84,6 +119,7 @@ const site = {
     ],
 
     teaching: [
+        { name: "Teaching Materials", link: "https://anfesanz.github.io/teaching.html" },
         { name: "Demographic Methods", link: "https://ble.lshtm.ac.uk/course/section.php?id=96567" },
         { name: "Population Projection and Dynamics" },
     ],
