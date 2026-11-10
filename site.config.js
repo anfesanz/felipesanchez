@@ -83,6 +83,11 @@ const site = {
         },
     ],
 
+    teaching: [
+        { name: "Demographic Methods", link: "https://ble.lshtm.ac.uk/course/section.php?id=96567" },
+        { name: "Population Projection and Dynamics" },
+    ],
+
     resumePdf: "", // optional PDF in public/files/; when empty, About > Resume shows the CV from content/cv.md
 };
 

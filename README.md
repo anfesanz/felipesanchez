@@ -13,7 +13,7 @@ Inspired in the work [vivek9patel/vivek9patel.github.io](https://github.com/vive
 
 | What | Where |
 |---|---|
-| Name, bio, links, skills, projects, education | `site.config.js` (search for `TODO`) |
+| Name, bio, links, skills, projects, teaching, education | `site.config.js` (search for `TODO`) |
 | Shiny apps (run in browser via Shinylive) | `shiny-apps/<name>/app.R`, registered in `components/apps/shiny.js` |
 | Desktop / dock apps | `apps.config.js` |
 | CV (shown in the CV folder and About › Resume) | `content/cv.md` |

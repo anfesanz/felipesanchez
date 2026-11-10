@@ -14,6 +14,16 @@ export const FOLDERS = {
             note: p.description[0],
         })),
     },
+    teaching: {
+        title: "Teaching",
+        icon: "./themes/Yaru/system/folder.png",
+        items: () => site.teaching.map(item => ({
+            name: item.shortName || item.name,
+            icon: item.icon || "./themes/Yaru/system/folder.png",
+            url: item.link,
+            note: item.description?.[0] || item.name,
+        })),
+    },
     cv: {
         // Named "About" when the CV is hidden (it still holds contact links)
         title: site.show.cv ? "CV" : "About",

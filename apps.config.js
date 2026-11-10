@@ -40,6 +40,15 @@ const apps = [
         screen: displayFolder("projects"),
     },
     {
+        id: "folder-teaching",
+        title: FOLDERS.teaching.title,
+        icon: FOLDERS.teaching.icon,
+        disabled: false,
+        favourite: false,
+        desktop_shortcut: true,
+        screen: displayFolder("teaching"),
+    },
+    {
         id: "cv",
         title: "CV",
         icon: './themes/Yaru/system/cv-document.svg',
